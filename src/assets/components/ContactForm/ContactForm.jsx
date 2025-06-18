@@ -1,53 +1,123 @@
 import { useFormik } from "formik";
+import { validationContactSchema } from "../../../utils/validationContactSchema";
 
-const ContactForm = () => {
-  const formik = useFormik({});
+const ContactForm = ({ handleContact }) => {
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      query: "",
+      message: "",
+      consent: false,
+    },
+    validationSchema: validationContactSchema,
+  });
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    handleContact(formik.values);
+    formik.resetForm();
+  };
 
   return (
     <div>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <h3>Contact Us</h3>
         <div>
           <div>
-            <label htmlFor="firstNam">
+            <label htmlFor="firstName">
               First Name <span>*</span>
             </label>
-            <input type="text" name="firstName" id="firstName" />
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              value={formik.values.firstName}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
           </div>
           <div>
             <label htmlFor="lastName">
               Last Name <span>*</span>
             </label>
-            <input type="text" name="lastName" id="lastName" />
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              value={formik.values.lastName}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
           </div>
         </div>
         <div>
           <label htmlFor="email">
             Email Address <span>*</span>
           </label>
-          <input type="text" name="email" id="email" />
+          <input
+            type="text"
+            name="email"
+            id="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
         </div>
         <div>
           <h3>
             Query Type <span>*</span>
           </h3>
-          <label htmlFor="general">
-            <input type="radio" name="general" value="general" />
+          <label>
+            <input
+              type="radio"
+              name="query"
+              value="general"
+              checked={formik.values.query === "general"}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
             General Enquiry
           </label>
-          <label htmlFor="support">
-            <input type="radio" name="support" value="support" />
+
+          <label>
+            <input
+              type="radio"
+              name="query"
+              value="support"
+              checked={formik.values.query === "support"}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
             Support Request
           </label>
         </div>
         <div>
           <label htmlFor="message">
-            <textarea type="text" name="message" id="message" rows={20}/>
+            <textarea
+              type="text"
+              name="message"
+              id="message"
+              rows={20}
+              value={formik.values.message}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
           </label>
         </div>
         <div>
-            <input type="checkbox" id="consent" name="consent"/>
-            <label htmlFor="consent">I consent to being contacted by the team <span>*</span></label>
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            checked={formik.values.consent}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          <label htmlFor="consent">
+            I consent to being contacted by the team <span>*</span>
+          </label>
         </div>
         <button type="submit">Submit</button>
       </form>
