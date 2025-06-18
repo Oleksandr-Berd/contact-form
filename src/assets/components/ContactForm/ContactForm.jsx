@@ -28,16 +28,28 @@ const ContactForm = () => {
           <input type="text" name="email" id="email" />
         </div>
         <div>
-            <h3>Query Type <span>*</span></h3>
-            <label htmlFor="general">
-                <input type="radio" name="general" value="general"/>
-                General Enquiry
-            </label>
-             <label htmlFor="support">
-                <input type="radio" name="support" value="support"/>
-                Support Request
-            </label>
+          <h3>
+            Query Type <span>*</span>
+          </h3>
+          <label htmlFor="general">
+            <input type="radio" name="general" value="general" />
+            General Enquiry
+          </label>
+          <label htmlFor="support">
+            <input type="radio" name="support" value="support" />
+            Support Request
+          </label>
         </div>
+        <div>
+          <label htmlFor="message">
+            <textarea type="text" name="message" id="message" rows={20}/>
+          </label>
+        </div>
+        <div>
+            <input type="checkbox" id="consent" name="consent"/>
+            <label htmlFor="consent">I consent to being contacted by the team <span>*</span></label>
+        </div>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
