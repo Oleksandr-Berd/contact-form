@@ -37,6 +37,9 @@ const ContactForm = ({ handleContact }) => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
+            {formik.touched.firstName && formik.errors.firstName && (
+              <div>{formik.errors.firstName}</div>
+            )}
           </div>
           <div>
             <label htmlFor="lastName">
@@ -50,6 +53,9 @@ const ContactForm = ({ handleContact }) => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
+            {formik.touched.lastName && formik.errors.lastName && (
+              <div>{formik.errors.lastName}</div>
+            )}
           </div>
         </div>
         <div>
@@ -64,34 +70,42 @@ const ContactForm = ({ handleContact }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
+          {formik.touched.email && formik.errors.email && (
+            <div>{formik.errors.email}</div>
+          )}
         </div>
         <div>
           <h3>
             Query Type <span>*</span>
           </h3>
-          <label>
-            <input
-              type="radio"
-              name="query"
-              value="general"
-              checked={formik.values.query === "general"}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            General Enquiry
-          </label>
+          <div>
+            <label>
+              <input
+                type="radio"
+                name="query"
+                value="general"
+                checked={formik.values.query === "general"}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              General Enquiry
+            </label>
 
-          <label>
-            <input
-              type="radio"
-              name="query"
-              value="support"
-              checked={formik.values.query === "support"}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            Support Request
-          </label>
+            <label>
+              <input
+                type="radio"
+                name="query"
+                value="support"
+                checked={formik.values.query === "support"}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              Support Request
+            </label>
+          </div>
+          {formik.touched.query && formik.errors.query && (
+            <div>{formik.errors.query}</div>
+          )}
         </div>
         <div>
           <label htmlFor="message">
@@ -105,6 +119,9 @@ const ContactForm = ({ handleContact }) => {
               onBlur={formik.handleBlur}
             />
           </label>
+          {formik.touched.message && formik.errors.message && (
+            <div>{formik.errors.message}</div>
+          )}
         </div>
         <div>
           <input
@@ -118,6 +135,9 @@ const ContactForm = ({ handleContact }) => {
           <label htmlFor="consent">
             I consent to being contacted by the team <span>*</span>
           </label>
+           {formik.touched.consent && formik.errors.consent && (
+            <div>{formik.errors.consent}</div>
+          )}
         </div>
         <button type="submit">Submit</button>
       </form>
