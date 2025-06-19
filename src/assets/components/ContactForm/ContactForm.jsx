@@ -1,4 +1,4 @@
-import * as SC from "./ContactFormStyled"
+import * as SC from "./ContactFormStyled";
 
 import { useFormik } from "formik";
 import { validationContactSchema } from "../../../utils/validationContactSchema";
@@ -40,7 +40,7 @@ const ContactForm = ({ handleContact }) => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.firstName && formik.errors.firstName && (
-              <div>{formik.errors.firstName}</div>
+              <SC.ErrorConStyled>{formik.errors.firstName}</SC.ErrorConStyled>
             )}
           </SC.InputConStyled>
           <SC.InputConStyled>
@@ -56,7 +56,7 @@ const ContactForm = ({ handleContact }) => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.lastName && formik.errors.lastName && (
-              <div>{formik.errors.lastName}</div>
+              <SC.ErrorConStyled>{formik.errors.lastName}</SC.ErrorConStyled>
             )}
           </SC.InputConStyled>
         </div>
@@ -73,7 +73,7 @@ const ContactForm = ({ handleContact }) => {
             onBlur={formik.handleBlur}
           />
           {formik.touched.email && formik.errors.email && (
-            <div>{formik.errors.email}</div>
+            <SC.ErrorConStyled>{formik.errors.email}</SC.ErrorConStyled>
           )}
         </SC.InputConStyled>
         <SC.InputConStyled>
@@ -81,7 +81,7 @@ const ContactForm = ({ handleContact }) => {
             Query Type <span>*</span>
           </SC.LabelStyled>
           <div>
-            <label>
+            <SC.RadioLableStyled>
               <input
                 type="radio"
                 name="query"
@@ -91,9 +91,9 @@ const ContactForm = ({ handleContact }) => {
                 onBlur={formik.handleBlur}
               />
               General Enquiry
-            </label>
+            </SC.RadioLableStyled>
 
-            <label>
+            <SC.RadioLableStyled>
               <input
                 type="radio"
                 name="query"
@@ -103,10 +103,10 @@ const ContactForm = ({ handleContact }) => {
                 onBlur={formik.handleBlur}
               />
               Support Request
-            </label>
+            </SC.RadioLableStyled>
           </div>
           {formik.touched.query && formik.errors.query && (
-            <div>{formik.errors.query}</div>
+            <SC.ErrorConStyled>{formik.errors.query}</SC.ErrorConStyled>
           )}
         </SC.InputConStyled>
         <SC.TextAreaConStyled>
@@ -122,7 +122,7 @@ const ContactForm = ({ handleContact }) => {
             />
           </label>
           {formik.touched.message && formik.errors.message && (
-            <div>{formik.errors.message}</div>
+            <SC.ErrorConStyled>{formik.errors.message}</SC.ErrorConStyled>
           )}
         </SC.TextAreaConStyled>
         <SC.CheckConStyled>
@@ -137,11 +137,16 @@ const ContactForm = ({ handleContact }) => {
           <SC.ConsentLabel htmlFor="consent">
             I consent to being contacted by the team <span>*</span>
           </SC.ConsentLabel>
-           {formik.touched.consent && formik.errors.consent && (
-            <div>{formik.errors.consent}</div>
+          {formik.touched.consent && formik.errors.consent && (
+            <SC.ErrorConStyled>{formik.errors.consent}</SC.ErrorConStyled>
           )}
         </SC.CheckConStyled>
-        <SC.SubmitButtonStyled type="submit">Submit</SC.SubmitButtonStyled>
+        <SC.SubmitButtonStyled
+          type="submit"
+          disabled={!formik.values.consent || formik.values.query === ""}
+        >
+          Submit
+        </SC.SubmitButtonStyled>
       </form>
     </SC.ContactFormStyled>
   );

@@ -7,6 +7,12 @@ export const ContactFormStyled = styled.div`
   padding-right: 24px;
 
   background-color: #ffffff;
+
+  border-radius: 16px;
+
+  & span {
+    color: #0c7d69;
+  }
 `;
 
 export const TitleContactStyled = styled.h1`
@@ -15,9 +21,14 @@ export const TitleContactStyled = styled.h1`
   font-size: 32px;
   font-weight: 700;
   letter-spacing: -1px;
+
+  color: #2a4144;
+
 `;
 
 export const InputConStyled = styled.div`
+  position: relative;
+
   margin-bottom: 24px;
 `;
 
@@ -30,6 +41,11 @@ export const TextInputStyled = styled.input`
 
   font-size: 18px;
   line-height: 1.5;
+
+  color: #2a4144;
+
+  border: 1px solid #86a2a5;
+  border-radius: 8px;
 `;
 
 export const LabelStyled = styled.label`
@@ -37,45 +53,115 @@ export const LabelStyled = styled.label`
 
   font-size: 16px;
   line-height: 1.5;
+
+  color: #2a4144;
+
+`;
+
+export const RadioLableStyled = styled.label`
+  display: block;
+
+  margin-top: 8px;
+
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+
+  color: #2a4144;
+
+  border: 1px solid #86a2a5;
+  border-radius: 8px;
+
+  & > input {
+    margin-right: 12px;
+
+  color: #2a4144;
+
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 16px;
+  }
 `;
 
 export const TextAreaConStyled = styled.div`
-margin-bottom: 40px;
+  position: relative;
 
-`
+  margin-bottom: 40px;
+`;
 
 export const TextAreaStyled = styled.textarea`
-width: 100%;
-`
+  width: 100%;
+
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  font-size: 18px;
+  line-height: 1.5;
+
+  color: #2a4144;
+
+  border: 1px solid #86a2a5;
+  border-radius: 8px;
+`;
 
 export const CheckConStyled = styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
+  position: relative;
 
-margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-padding-right: 36px;
+  margin-bottom: 40px;
 
-& > input{
+  padding-right: 36px;
+
+  & > input {
     margin-right: 16px;
-}
-`
+  }
+`;
 
 export const ConsentLabel = styled.label`
+  font-size: 16px;
+  line-height: 1.5;
 
-font-size: 16px;
-line-height: 1.5;
-`
+  color: #2a4144;
+
+`;
 
 export const SubmitButtonStyled = styled.button`
-width: 100%;
+  width: 100%;
 
-padding-top: 16px;
-padding-bottom: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 
-background-color: #0C7D69;
-color: #fff;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 700;
 
-border-radius: 8px;
-`
+  background-color: #0c7d69;
+  color: #fff;
+
+  border-radius: 8px;
+
+  &:disabled {
+    background-color: #a9a9a9;
+    color: #fff;
+  }
+`;
+
+export const ErrorConStyled = styled.div`
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  transform: translate(0, 24px);
+
+  font-weight: 700;
+  font-style: italic;
+
+  color: #ff0000;
+`;
