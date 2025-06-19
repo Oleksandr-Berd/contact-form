@@ -1,3 +1,5 @@
+import * as SC from "./ContactFormStyled"
+
 import { useFormik } from "formik";
 import { validationContactSchema } from "../../../utils/validationContactSchema";
 
@@ -21,15 +23,15 @@ const ContactForm = ({ handleContact }) => {
   };
 
   return (
-    <div>
+    <SC.ContactFormStyled>
       <form onSubmit={handleSubmit}>
-        <h3>Contact Us</h3>
+        <SC.TitleContactStyled>Contact Us</SC.TitleContactStyled>
         <div>
-          <div>
-            <label htmlFor="firstName">
+          <SC.InputConStyled>
+            <SC.LabelStyled htmlFor="firstName">
               First Name <span>*</span>
-            </label>
-            <input
+            </SC.LabelStyled>
+            <SC.TextInputStyled
               type="text"
               name="firstName"
               id="firstName"
@@ -40,12 +42,12 @@ const ContactForm = ({ handleContact }) => {
             {formik.touched.firstName && formik.errors.firstName && (
               <div>{formik.errors.firstName}</div>
             )}
-          </div>
-          <div>
-            <label htmlFor="lastName">
+          </SC.InputConStyled>
+          <SC.InputConStyled>
+            <SC.LabelStyled htmlFor="lastName">
               Last Name <span>*</span>
-            </label>
-            <input
+            </SC.LabelStyled>
+            <SC.TextInputStyled
               type="text"
               name="lastName"
               id="lastName"
@@ -56,13 +58,13 @@ const ContactForm = ({ handleContact }) => {
             {formik.touched.lastName && formik.errors.lastName && (
               <div>{formik.errors.lastName}</div>
             )}
-          </div>
+          </SC.InputConStyled>
         </div>
-        <div>
-          <label htmlFor="email">
+        <SC.InputConStyled>
+          <SC.LabelStyled htmlFor="email">
             Email Address <span>*</span>
-          </label>
-          <input
+          </SC.LabelStyled>
+          <SC.TextInputStyled
             type="text"
             name="email"
             id="email"
@@ -73,11 +75,11 @@ const ContactForm = ({ handleContact }) => {
           {formik.touched.email && formik.errors.email && (
             <div>{formik.errors.email}</div>
           )}
-        </div>
-        <div>
-          <h3>
+        </SC.InputConStyled>
+        <SC.InputConStyled>
+          <SC.LabelStyled>
             Query Type <span>*</span>
-          </h3>
+          </SC.LabelStyled>
           <div>
             <label>
               <input
@@ -106,10 +108,10 @@ const ContactForm = ({ handleContact }) => {
           {formik.touched.query && formik.errors.query && (
             <div>{formik.errors.query}</div>
           )}
-        </div>
-        <div>
+        </SC.InputConStyled>
+        <SC.TextAreaConStyled>
           <label htmlFor="message">
-            <textarea
+            <SC.TextAreaStyled
               type="text"
               name="message"
               id="message"
@@ -122,8 +124,8 @@ const ContactForm = ({ handleContact }) => {
           {formik.touched.message && formik.errors.message && (
             <div>{formik.errors.message}</div>
           )}
-        </div>
-        <div>
+        </SC.TextAreaConStyled>
+        <SC.CheckConStyled>
           <input
             type="checkbox"
             id="consent"
@@ -132,16 +134,16 @@ const ContactForm = ({ handleContact }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          <label htmlFor="consent">
+          <SC.ConsentLabel htmlFor="consent">
             I consent to being contacted by the team <span>*</span>
-          </label>
+          </SC.ConsentLabel>
            {formik.touched.consent && formik.errors.consent && (
             <div>{formik.errors.consent}</div>
           )}
-        </div>
-        <button type="submit">Submit</button>
+        </SC.CheckConStyled>
+        <SC.SubmitButtonStyled type="submit">Submit</SC.SubmitButtonStyled>
       </form>
-    </div>
+    </SC.ContactFormStyled>
   );
 };
 
