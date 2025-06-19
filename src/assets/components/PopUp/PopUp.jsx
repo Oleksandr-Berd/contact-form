@@ -1,5 +1,19 @@
-const PopUp = ({ contact }) => {
+import { useEffect } from "react";
+
+const PopUp = ({ contact, resetPopUp }) => {
   const { firstName, lastName, email } = contact || {};
+
+  const handlePopUp = () => {
+    setTimeout(() => {
+      resetPopUp();
+    }, 3000);
+  };
+
+
+useEffect(()=>{
+    handlePopUp()
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, [contact])
 
   return (
     <div>
