@@ -50,4 +50,22 @@ margin-right: auto;
 background-color: #00fff7;
 
 border-radius: 12px;
+
+animation: fadeOut 3s ease-out forwards;
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(0.5);
+  }
+}
 `
+
