@@ -26,7 +26,7 @@ const ContactForm = ({ handleContact }) => {
     <SC.ContactFormStyled>
       <form onSubmit={handleSubmit}>
         <SC.TitleContactStyled>Contact Us</SC.TitleContactStyled>
-        <div>
+        <SC.NameConStyled>
           <SC.InputConStyled>
             <SC.LabelStyled htmlFor="firstName">
               First Name <span>*</span>
@@ -43,7 +43,7 @@ const ContactForm = ({ handleContact }) => {
               <SC.ErrorConStyled>{formik.errors.firstName}</SC.ErrorConStyled>
             )}
           </SC.InputConStyled>
-          <SC.InputConStyled>
+          <SC.InputConStyled >
             <SC.LabelStyled htmlFor="lastName">
               Last Name <span>*</span>
             </SC.LabelStyled>
@@ -59,8 +59,8 @@ const ContactForm = ({ handleContact }) => {
               <SC.ErrorConStyled>{formik.errors.lastName}</SC.ErrorConStyled>
             )}
           </SC.InputConStyled>
-        </div>
-        <SC.InputConStyled>
+        </SC.NameConStyled>
+        <SC.InputConStyled id="email">
           <SC.LabelStyled htmlFor="email">
             Email Address <span>*</span>
           </SC.LabelStyled>
@@ -76,11 +76,11 @@ const ContactForm = ({ handleContact }) => {
             <SC.ErrorConStyled>{formik.errors.email}</SC.ErrorConStyled>
           )}
         </SC.InputConStyled>
-        <SC.InputConStyled>
-          <SC.LabelStyled>
+        <SC.InputConStyled id="query">
+          <SC.LabelStyled id="query">
             Query Type <span>*</span>
           </SC.LabelStyled>
-          <div>
+          <SC.RadioConStyled>
             <SC.RadioLableStyled>
               <input
                 type="radio"
@@ -104,7 +104,7 @@ const ContactForm = ({ handleContact }) => {
               />
               Support Request
             </SC.RadioLableStyled>
-          </div>
+          </SC.RadioConStyled>
           {formik.touched.query && formik.errors.query && (
             <SC.ErrorConStyled>{formik.errors.query}</SC.ErrorConStyled>
           )}

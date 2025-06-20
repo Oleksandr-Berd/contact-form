@@ -13,7 +13,26 @@ export const ContactFormStyled = styled.div`
   & span {
     color: #0c7d69;
   }
+
+  @media (min-width: 768px){
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 `;
+
+
+export const NameConStyled = styled.div`
+@media (min-width: 768px){
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+}
+`
 
 export const TitleContactStyled = styled.h1`
   margin-bottom: 32px;
@@ -30,6 +49,18 @@ export const InputConStyled = styled.div`
   position: relative;
 
   margin-bottom: 24px;
+
+  @media (min-width: 768px){
+    margin-bottom: 0;
+
+   &:first-of-type{
+    margin-right: 32px;
+   }
+
+   &#email, &#query{
+    margin-bottom: 24px;
+   }
+}
 `;
 
 export const TextInputStyled = styled.input`
@@ -49,6 +80,8 @@ export const TextInputStyled = styled.input`
 `;
 
 export const LabelStyled = styled.label`
+display: inline-block;
+
   margin-bottom: 8px;
 
   font-size: 16px;
@@ -56,7 +89,23 @@ export const LabelStyled = styled.label`
 
   color: #2a4144;
 
+@media (min-width: 768px){
+
+    &#query{
+        margin-bottom: 16px;
+    }
+}
 `;
+
+export const RadioConStyled = styled.div`
+
+@media (min-width: 768px){
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+`
 
 export const RadioLableStyled = styled.label`
   display: block;
@@ -81,6 +130,14 @@ export const RadioLableStyled = styled.label`
 
   &:not(:last-of-type) {
     margin-bottom: 16px;
+
+    @media (min-width: 768px){
+        margin-bottom: 0;
+    }
+  }
+
+  @media (min-width: 768px){
+width: calc(50% - 8px);
   }
 `;
 
