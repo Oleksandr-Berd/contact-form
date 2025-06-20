@@ -38,6 +38,7 @@ const ContactForm = ({ handleContact }) => {
               value={formik.values.firstName}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+               isError={formik.touched.firstName && formik.errors.firstName && true}
             />
             {formik.touched.firstName && formik.errors.firstName && (
               <SC.ErrorConStyled>{formik.errors.firstName}</SC.ErrorConStyled>
@@ -54,6 +55,7 @@ const ContactForm = ({ handleContact }) => {
               value={formik.values.lastName}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+               isError={formik.touched.lastName && formik.errors.lastName && true}
             />
             {formik.touched.lastName && formik.errors.lastName && (
               <SC.ErrorConStyled>{formik.errors.lastName}</SC.ErrorConStyled>
@@ -71,6 +73,7 @@ const ContactForm = ({ handleContact }) => {
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            isError={formik.touched.email && formik.errors.email && true}
           />
           {formik.touched.email && formik.errors.email && (
             <SC.ErrorConStyled>{formik.errors.email}</SC.ErrorConStyled>
@@ -119,6 +122,7 @@ const ContactForm = ({ handleContact }) => {
               value={formik.values.message}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              isError={formik.touched.message && formik.errors.message && true}
             />
           </label>
           {formik.touched.message && formik.errors.message && (

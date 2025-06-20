@@ -20,6 +20,13 @@ export const ContactFormStyled = styled.div`
     padding-left: 40px;
     padding-right: 40px;
   }
+
+  @media (min-width: 1280px){
+    max-width: 52%;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 
@@ -61,6 +68,13 @@ export const InputConStyled = styled.div`
     margin-bottom: 24px;
    }
 }
+
+@media (min-width: 1280px){
+
+    &:hover, &:focus, &:active{
+        cursor: pointer;
+    }
+}
 `;
 
 export const TextInputStyled = styled.input`
@@ -75,7 +89,7 @@ export const TextInputStyled = styled.input`
 
   color: #2a4144;
 
-  border: 1px solid #86a2a5;
+  border: ${({isError}) => isError ? "1px solid #ff0000" : "1px solid #86a2a5"};
   border-radius: 8px;
 `;
 
@@ -160,7 +174,7 @@ export const TextAreaStyled = styled.textarea`
 
   color: #2a4144;
 
-  border: 1px solid #86a2a5;
+  border: ${({isError}) => isError ? "1px solid #ff0000" : "1px solid #86a2a5"};
   border-radius: 8px;
 `;
 
@@ -207,6 +221,15 @@ export const SubmitButtonStyled = styled.button`
     background-color: #a9a9a9;
     color: #fff;
   }
+
+  @media (min-width: 1280px){
+
+    &:hover, &:focus, &:active{
+        cursor: pointer;
+
+        opacity: 0.7;
+    }
+}
 `;
 
 export const ErrorConStyled = styled.div`
