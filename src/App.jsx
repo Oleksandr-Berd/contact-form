@@ -13,7 +13,7 @@ function App() {
 
 
 const resetPopUp = () => {
-  setContact(null)
+  // setContact(null)
 }
 
   return (

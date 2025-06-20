@@ -1,3 +1,5 @@
+import * as SC from "./PopUpStyled"
+
 import { useEffect } from "react";
 
 const PopUp = ({ contact, resetPopUp }) => {
@@ -16,15 +18,16 @@ useEffect(()=>{
 }, [contact])
 
   return (
-    <div>
+    <SC.PopUpStyled>
       <div>
         <h3>Message Sent!</h3>
         <p>
           Thanks {firstName} {lastName} for completing the form. We'll be in
           touch soon via {email}!
         </p>
+        <SC.ScaleStyled></SC.ScaleStyled>
       </div>
-    </div>
+    </SC.PopUpStyled>
   );
 };
 

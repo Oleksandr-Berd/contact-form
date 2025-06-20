@@ -115,7 +115,7 @@ const ContactForm = ({ handleContact }) => {
               type="text"
               name="message"
               id="message"
-              rows={20}
+              rows={8}
               value={formik.values.message}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
